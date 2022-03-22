@@ -4,20 +4,39 @@
     private $energyType;
     private $hitpoints;
     private $health;
-    private $attacks;
+    private $attack;
     private $weakness;
     private $resistance;
 
-    public function __construct(String $name, $energyType, $hitpoints, $attacks, $weakness, $resistance) {
+    public function __construct(String $name, $energyType, $hitpoints, $attack, $weakness, $resistance) {
       $this->name = $name;
       $this->energyType = $energyType;
       $this->hitpoints = $hitpoints;
       $this->health = $hitpoints;
-      $this->attacks = $attacks;
+      $this->attack = $attack;
       $this->weakness = $weakness;
       $this->resistance = $resistance;
     }
 
+    //Methods
+    public function attackDamage(){
+      // de schade van een Attack wordt vermenigvuldigd met de multiplier van de Weakness 
+      // indien de EnergyType van de Weakness gelijk is aan de EnergyType van de aanvallende Pokemon
+
+      // de schade van een Attack wordt verminderd met de waarde van de Resistance 
+      // indien de EnergyType van de Resistance gelijk is aan de EnergyType van de aanvallende Pokemon
+    }
+
+    public function getPopulation(){
+      // Elke constructie van een nieuw Pokemon object verhoogt het aantal levende pokemons
+
+      // Elke keer dat de health van een Pokemon object onder nul komt 
+      // dan sterft de Pokemon en verlaagt dat het aantal levende pokemons
+
+      // Gebruik static voor class methods en properties die object-onafhankelijk zijn.
+    } 
+
+    //Getters & Setters
     public function getResistance(){
       return $this->resistance;
     }
@@ -36,15 +55,15 @@
       return $this;
     }
 
-    public function getAttacks(){
-      return $this->attacks;
+    public function getAttack(){
+      return $this->attack;
     }
   
-    public function setAttacks($attacks){
-      $this->attacks = $attacks;
+    public function setAttack($attack){
+      $this->attack = $attack;
       return $this;
     }
-    
+
     public function getHealth(){
       return $this->health;
     }
@@ -81,38 +100,6 @@
       return $this;
     }
   }
-
-  $Pikachu = new pokemon("Pikachu", "Lightning", "60", "Electric Ring", "Pika Punch", "Fire", "Fighting");
-  $Charmeleon = new pokemon("Charmeleon", "Fire", "60", "Head Butt", "Flare", "Water", "Lightning");
-
-  echo $Pikachu->getName();
-  echo "<br>";
-  echo $Pikachu->getEnergyType();
-  echo "<br>";
-  echo $Pikachu->getHitpoints();
-  echo "<br>";
-  echo $Pikachu->getHealth();
-  echo "<br>";
-  echo $Pikachu->getAttacks();
-  echo "<br>";
-  echo $Pikachu->getWeakness();
-  echo "<br>";
-  echo $Pikachu->getResistance();
-
-  // echo "<br>";
-  // echo "<br>";
-
-  // echo $Charmeleon->getName();
-  // echo "<br>";
-  // echo $Charmeleon->getEnergyType();
-  // echo "<br>";
-  // echo $Charmeleon->getHitpoints();
-  // echo "<br>";
-  // echo $Charmeleon->getHealth();
-  // echo "<br>";
-  // echo $Charmeleon->getAttacks();
-  // echo "<br>";
-  // echo $Charmeleon->getWeakness();
-  // echo "<br>";
-  // echo $Charmeleon->getResistance();
   
+  $Pikachu = new pokemon("Pikachu", new energyType("Lightning", ""), 60, [new attack("Electric Ring", 50), new attack("Pika Punch", 20)], new weakness("Fire", 1.5), new resistance("Fighting", 20));
+  $Charmeleon = new pokemon("Charmeleon", new energyType("Fire", ""), 60, [new attack("Head Butt", 10), new attack("Flare", 30)], new weakness("Water", 2), new resistance("Lightning", 10));

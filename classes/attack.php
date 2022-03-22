@@ -3,6 +3,11 @@
     private $name;
     private $damage;
 
+    public function __construct(String $name, $damage) {
+      $this->name = $name;
+      $this->damage = $damage;
+    }
+
     public function getName(){
       return $this->name;
     }

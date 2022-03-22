@@ -3,6 +3,11 @@
     private $energyType;
     private $multiplier;
 
+    public function __construct(String $energyType, $multiplier) {
+      $this->energyType = $energyType;
+      $this->multiplier = $multiplier;
+    }
+
     public function getEnergyType(){
       return $this->energyType;
     }
@@ -21,4 +26,3 @@
       return $this;
     }
   }
-  
