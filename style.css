@@ -1,0 +1,28 @@
+.pokemonContainer1{
+  margin: 25px;
+  width: 350px;
+  height: 250px;
+  position: relative;
+  border: 5px solid yellow;
+  background-color: rgba(221, 235, 37, 0.5);
+  padding: 5px;
+  display: inline-block;
+}
+
+.pokemonContainer2{
+  margin: 25px;
+  width: 350px;
+  height: 250px;
+  position: relative;
+  border: 5px solid red;
+  background-color: rgba(221, 235, 37, 0.5);
+  padding: 5px;
+  display: inline-block;
+}
+
+img{
+  padding: 5px;
+  width: 150px;
+  position: relative;
+  float: right;
+}

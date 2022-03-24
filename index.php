@@ -12,18 +12,32 @@
 <head>
   <title>Index</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
   <body>
-    <p>Health <?php echo $Pikachu->getName();?>: <?php echo $Pikachu->getHealth();?></p>
-    <p>Health <?php echo $Charmeleon->getName();?>: <?php echo $Charmeleon->getHealth();?></p>
+    <div class="pokemonContainer1">
+      <h3 style="text-align: center;"><?php echo $Pikachu->getName();?></h3>
+      <img src="images/pikachu.png" alt="pikachu">
+      <h4>Full health: <?php echo $Pikachu->getHealth();?></h4>
 
-    <p><?php echo $Pikachu->getName();?> valt <?php echo $Charmeleon->getName();?> aan met een <?php echo $Pikachu->attackDamage($Charmeleon, 0);?> attack</p>
-    <p>Health <?php echo $Charmeleon->getName();?>: <?php echo $Charmeleon->getHealth();?></p>
-    
-    <p><?php echo $Charmeleon->getName();?> valt <?php echo $Pikachu->getName();?> aan met een <?php echo $Charmeleon->attackDamage($Pikachu, 1);?> attack</p>
-    <p>Health <?php echo $Pikachu->getName();?>: <?php echo $Pikachu->getHealth();?></p>
+      <h4>Attack: </b></h4>
+      <p><?php echo $Pikachu->getName();?> attacks <?php echo $Charmeleon->getName();?> with <?php echo $Pikachu->attackDamage($Charmeleon, 0);?></p>
+    </div>
 
-    <p>Aantal levende pokemons: <?php echo $Pikachu->getPopulation();?></p>
+    <div class="pokemonContainer2">
+      <h3 style="text-align: center;"><?php echo $Charmeleon->getName();?></h3>
+      <img src="images/charmeleon.png" alt="charmeleon">
+      <h4>Full health: <?php echo $Charmeleon->getHealth();?></h4>
+
+      <h4>Attack: </h4>
+      <p><?php echo $Charmeleon->getName();?> attacks <?php echo $Pikachu->getName();?> with <?php echo $Charmeleon->attackDamage($Pikachu, 1);?></p>
+    </div>
+
+    <div class="pokemons">
+      <h4>Alive pokemons: <?php echo $Pikachu->getPopulation();?></h4>
+      <h4>Health after fight: </h4>
+      <p><b>Pikachu: </b><?php echo $Pikachu->getHealth();?></p>
+      <p><b>Charmeleon: </b><?php echo $Charmeleon->getHealth();?></p>
+    </div>
+
   </body>
 </html>
