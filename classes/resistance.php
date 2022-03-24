@@ -3,7 +3,7 @@
     private $energyType;
     private $value;
 
-    public function __construct(String $energyType, $value) {
+    public function __construct(String $energyType, $value){
       $this->energyType = $energyType;
       $this->value = $value;
     }

@@ -8,7 +8,10 @@
     private $weakness;
     private $resistance;
 
-    public function __construct(String $name, $energyType, $hitpoints, $attack, $weakness, $resistance) {
+    private static $pokemons = [];
+
+    // Constructor
+    public function __construct(String $name, $energyType, $hitpoints, $attack, $weakness, $resistance){
       $this->name = $name;
       $this->energyType = $energyType;
       $this->hitpoints = $hitpoints;
@@ -16,27 +19,50 @@
       $this->attack = $attack;
       $this->weakness = $weakness;
       $this->resistance = $resistance;
+      self::addPokemonArray($this);
     }
 
-    //Methods
-    public function attackDamage(){
-      // de schade van een Attack wordt vermenigvuldigd met de multiplier van de Weakness 
-      // indien de EnergyType van de Weakness gelijk is aan de EnergyType van de aanvallende Pokemon
-
-      // de schade van een Attack wordt verminderd met de waarde van de Resistance 
-      // indien de EnergyType van de Resistance gelijk is aan de EnergyType van de aanvallende Pokemon
+    // Methods
+    public function attackDamage($enemy, $index){
+      if ($enemy->getWeakness()->getEnergyType() ==  $this->getEnergyType()->getType()){
+        $damage = $this->getAttack()[$index]->getDamage() * $enemy->getWeakness()->getMultiplier();
+      } else if ($enemy->getResistance()->getEnergyType() == $this->getEnergyType()->getType()){
+        $damage = $this->getAttack()[$index]->getDamage() - $enemy->getResistance()->getValue();
+      }else{
+        $damage = $this->getAttack()[$index]->getDamage();
+      }
+      $enemy->changeHealth($damage);
+      // array("name"=> $this->getAttackNameIndex($index), "damage"=>$damage, "health"=> $enemy->changeHealth($damage))
+      return $this->getAttackNameIndex($index);
     }
 
-    public function getPopulation(){
-      // Elke constructie van een nieuw Pokemon object verhoogt het aantal levende pokemons
+    public function changeHealth($damage){
+      if($this->getHealth() - $damage > 0){
+        $this->setHealth($this->getHealth() - $damage);
+      }else{
+        $this->setHealth(0);
+      }
+    }
 
-      // Elke keer dat de health van een Pokemon object onder nul komt 
-      // dan sterft de Pokemon en verlaagt dat het aantal levende pokemons
-
-      // Gebruik static voor class methods en properties die object-onafhankelijk zijn.
+    public static function getPopulation(){
+      $count = 0;
+      foreach(self::$pokemons as $pokemon){
+        if($pokemon->getHealth() > 0){
+          $count++;
+        }
+      }
+      return $count;
     } 
 
-    //Getters & Setters
+    // Getters & Setters
+    public function addPokemonArray($pokemon) {
+      array_push($this::$pokemons, $pokemon);
+    }
+
+    public function getAttackNameIndex($index){
+      return $this->attack[$index]->getName();
+    }
+
     public function getResistance(){
       return $this->resistance;
     }
@@ -100,6 +126,3 @@
       return $this;
     }
   }
-  
-  $Pikachu = new pokemon("Pikachu", new energyType("Lightning", ""), 60, [new attack("Electric Ring", 50), new attack("Pika Punch", 20)], new weakness("Fire", 1.5), new resistance("Fighting", 20));
-  $Charmeleon = new pokemon("Charmeleon", new energyType("Fire", ""), 60, [new attack("Head Butt", 10), new attack("Flare", 30)], new weakness("Water", 2), new resistance("Lightning", 10));

@@ -3,7 +3,7 @@
     private $name;
     private $damage;
 
-    public function __construct(String $name, $damage) {
+    public function __construct(String $name, $damage){
       $this->name = $name;
       $this->damage = $damage;
     }
