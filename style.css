@@ -1,28 +1,48 @@
+body{
+  background-color: rgb(165, 161, 161);
+}
+
+.avatar{
+  width: 150px;
+  position: relative;
+  left: 26%;
+  padding: 0px;
+  margin: 0px;
+  border: 5px yellow outset;
+  box-shadow: 3px 3px 10px #000;
+}
+
 .pokemonContainer1{
   margin: 25px;
-  width: 350px;
-  height: 250px;
+  width: 310px;
+  height: 400px;
   position: relative;
-  border: 5px solid yellow;
-  background-color: rgba(221, 235, 37, 0.5);
+  border-radius: 15px;
+  border: 15px solid yellow;
+  background: linear-gradient(to bottom right, #ffffa4,#fff870,#fff200,#fff870,#ffffa4,#fff870);
   padding: 5px;
   display: inline-block;
 }
 
 .pokemonContainer2{
   margin: 25px;
-  width: 350px;
-  height: 250px;
+  width: 310px;
+  height: 400px;
   position: relative;
-  border: 5px solid red;
-  background-color: rgba(221, 235, 37, 0.5);
+  border-radius: 15px;
+  border: 15px solid yellow;
+  background: linear-gradient(to bottom right, #ffbfba,#ff978f,#ff756b,#ff594c,#ff756b,#ff978f);
   padding: 5px;
   display: inline-block;
 }
 
-img{
-  padding: 5px;
-  width: 150px;
-  position: relative;
-  float: right;
+.stats{
+  background-color: white;
+  position: absolute;
+  right: 300px;
+  width: 300px;
+  border: 5px rgb(26, 94, 182) outset;
+  padding: 10px;
+  top: 5%;
+  list-style-type: circle;
 }
