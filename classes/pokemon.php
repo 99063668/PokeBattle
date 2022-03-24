@@ -32,7 +32,7 @@
         $damage = $this->getAttack()[$index]->getDamage();
       }
       $enemy->changeHealth($damage);
-      // array("name"=> $this->getAttackNameIndex($index), "damage"=>$damage, "health"=> $enemy->changeHealth($damage))
+      //array("name"=> $this->getAttackNameIndex($index), "damage"=>$damage, "health"=> $enemy->changeHealth($damage));
       return $this->getAttackNameIndex($index);
     }
 
@@ -61,6 +61,10 @@
 
     public function getAttackNameIndex($index){
       return $this->attack[$index]->getName();
+    }
+
+    public function getAttackDamage($index){
+      return $this->attack[$index]->getDamage();
     }
 
     public function getResistance(){
