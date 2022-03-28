@@ -32,7 +32,6 @@
         $damage = $this->getAttack()[$index]->getDamage();
       }
       $enemy->changeHealth($damage);
-      //array("name"=> $this->getAttackNameIndex($index), "damage"=>$damage, "health"=> $enemy->changeHealth($damage));
       return $this->getAttackNameIndex($index);
     }
 
@@ -56,7 +55,7 @@
 
     // Getters & Setters
     public function addPokemonArray($pokemon) {
-      array_push($this::$pokemons, $pokemon);
+      array_push(self::$pokemons, $pokemon);
     }
 
     public function getAttackNameIndex($index){
