@@ -35,7 +35,7 @@
     <!--Card 1-->
     <div class="pokemonContainer1">
       <p style="position: absolute;"><img src="https://heatherketten.files.wordpress.com/2018/03/nrg_electric.png" width="25" height="25"></p>
-      <h3 style="text-align: center;"><?php echo $Pikachu->getName();?>&emsp;<?php echo $Pikachu->getHealth();?></h3>
+      <h3 style="text-align: center;"><?php echo $Pikachu->getName();?>&emsp;<?php echo $Pikachu->getHitpoints();?></h3>
       <img class="avatar" src="images/pikachu.jpg" alt="pikachu">
 
       <h4 style="padding-left: 5px; margin-bottom: 0px;"><?php echo $Pikachu->getAttackNameIndex(0);?>&emsp;<?php echo $Pikachu->getAttackDamage(0)?></h4>
@@ -52,7 +52,7 @@
     <!--Card 2-->
     <div class="pokemonContainer2">
       <p style="position: absolute;"><img src="https://heatherketten.files.wordpress.com/2018/03/nrg_fire.png" width="25" height="25"></p>
-      <h3 style="text-align: center;"><?php echo $Charmeleon->getName();?>&emsp;<?php echo $Charmeleon->getHealth();?></h3>
+      <h3 style="text-align: center;"><?php echo $Charmeleon->getName();?>&emsp;<?php echo $Charmeleon->getHitpoints();?></h3>
       <img class="avatar" src="images/charmeleon.jpg" alt="charmeleon">
 
       <h4 style="padding-left: 5px; margin-bottom: 0px;"><?php echo $Charmeleon->getAttackNameIndex(0);?>&emsp;<?php echo $Charmeleon->getAttackDamage(0)?></h4>
