@@ -1,5 +1,8 @@
 body{
   background-color: rgb(165, 161, 161);
+  background-image: url("https://i.pinimg.com/originals/df/4e/8b/df4e8ba28f912bf9cdf9fa0dfc196411.png");
+  background-size: 180vh;
+  overflow: hidden;
   display: flex;
 }
 
@@ -19,53 +22,44 @@ select{
   box-shadow: 3px 3px 10px #000;
 }
 
-.pokemonContainer1{
+.pokemonContainers{
   margin-top: 10px;
   margin-right: 15px;
   width: 310px;
   height: 400px;
-  position: relative;
   border-radius: 15px;
   border: 15px solid yellow;
-  background: linear-gradient(to bottom right, #ffffa4,#fff870,#fff200,#fff870,#ffffa4,#fff870);
   padding: 5px;
   display: inline-block;
 }
 
+.pokemonContainer1{
+  background: linear-gradient(to bottom right, #ffffa4,#fff870,#fff200,#fff870,#ffffa4,#fff870);
+}
+
 .pokemonContainer2{
-  margin-top: 10px;
-  margin-right: 15px;
-  width: 310px;
-  height: 400px;
-  position: relative;
-  border-radius: 15px;
-  border: 15px solid yellow;
   background: linear-gradient(to bottom right, #ffbfba,#ff978f,#ff756b,#ff594c,#ff756b,#ff978f);
-  padding: 5px;
-  display: inline-block;
+}
+
+.pokemonContainer3{
+  background: linear-gradient(to bottom right, #aae5b7,#78cf8b,#4fb665,#319d49,#4fb665,#78cf8b);
+}
+
+.pokemonContainer4{
+  background: linear-gradient(to bottom right, #d9e4ec,#b1d1eb,#7faaca,#6c9dca,#6896b9,#adc1d1);
 }
 
 .statsContainer{
   margin-top: 10px;
   margin-right: 15px;
   width: 310px;
+  height: 530px;
   position: relative;
   border-radius: 15px;
   border: 15px solid yellow;
-  background: linear-gradient(to bottom right, #d9e4ec,#adc1d1,#7d99af,#557792,#7d99af,#adc1d1);
+  background: linear-gradient(to bottom right, #cfaae5,#a578cf,#8d4fb6,#7c3daf,#7f4fb6,#9278cf);
   padding: 5px;
   display: inline-block;
-}
-
-.stats{
-  background-color: white;
-  position: absolute;
-  right: 300px;
-  width: 300px;
-  border: 5px rgb(26, 94, 182) outset;
-  padding: 10px;
-  top: 5%;
-  list-style-type: circle;
 }
 
 .iconInfo{
