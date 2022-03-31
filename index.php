@@ -15,11 +15,9 @@
   $Gogoat = new pokemon3\gogoat();
   $Blastoise = new pokemon4\blastoise();
 
-  if (!isset($_POST['choosePokemon1'])) {
+  if(!isset($_POST['choosePokemon1'])){
     $_POST['choosePokemon1'] = null;
-  }
-
-  if (!isset($_POST['choosePokemon2'])) {
+  }if(!isset($_POST['choosePokemon2'])){
     $_POST['choosePokemon2'] = null;
   }
 
@@ -27,10 +25,9 @@
     $pokemon = $Pikachu;
   }elseif(isset($_POST['choosePokemon1']) && $_POST['choosePokemon1'] === '1'){
     $pokemon = $Gogoat;
-  }
-  if(isset($_POST['choosePokemon2']) && $_POST['choosePokemon2'] === '0'){
+  }if(isset($_POST['choosePokemon2']) && $_POST['choosePokemon2'] === '0'){
     $pokemon2 = $Blastoise;
-  }elseif( isset($_POST['choosePokemon2']) && $_POST['choosePokemon2'] === '1'){
+  }elseif(isset($_POST['choosePokemon2']) && $_POST['choosePokemon2'] === '1'){
     $pokemon2 = $Charmeleon;
   } 
 
@@ -40,8 +37,7 @@
      $pokemon->attackDamage($pokemon2, $_POST['pikachuAttack']);
     }else{
       $_POST['pikachuAttack'] = null;
-    }
-    if($_POST['charmeleonAttack'] !== "null" && $_POST['charmeleonAttack'] !== null){
+    }if($_POST['charmeleonAttack'] !== "null" && $_POST['charmeleonAttack'] !== null){
       $pokemon2->attackDamage($pokemon, $_POST['charmeleonAttack']);
     }else{
       $_POST['charmeleonAttack'] = null;
@@ -74,8 +70,7 @@
       </form>
     </div>
 
-    
-    <?php if ($_POST['choosePokemon1'] === '0') { ?>
+    <?php if($_POST['choosePokemon1'] === '0'){ ?>
       <!--Card pikachu-->
       <div class="pokemonContainers pokemonContainer1">
         <p style="position: absolute;"><img src="https://heatherketten.files.wordpress.com/2018/03/nrg_electric.png" width="25" height="25"></p>
@@ -94,7 +89,7 @@
       </div>
     <?php } ?>
 
-    <?php if ($_POST['choosePokemon1'] !== "null" && $_POST['choosePokemon1'] !== null && $_POST['choosePokemon1'] == '1') { ?>
+    <?php if($_POST['choosePokemon1'] == '1'){ ?>
       <!--Card gogoat-->
       <div class="pokemonContainers pokemonContainer3">
         <p style="position: absolute;"><img src="https://styles.redditmedia.com/t5_35vc0/styles/postUpvoteIconActive_vs5265rzh3t01.png" width="25" height="25"></p>
@@ -113,7 +108,7 @@
       </div>
     <?php } ?>
 
-    <?php if ($_POST['choosePokemon2'] !== "null" && $_POST['choosePokemon2'] !== null && $_POST['choosePokemon2'] == '0') { ?>
+    <?php if($_POST['choosePokemon2'] == '0'){ ?>
       <!--Card blastoise-->
       <div class="pokemonContainers pokemonContainer4">
         <p style="position: absolute;"><img src="https://heatherketten.files.wordpress.com/2018/03/nrg_water.png" width="25" height="25"></p>
@@ -132,7 +127,7 @@
       </div>
     <?php } ?>
 
-     <?php if ($_POST['choosePokemon2'] !== "null" && $_POST['choosePokemon2'] !== null && $_POST['choosePokemon2'] == '1') { ?>
+     <?php if($_POST['choosePokemon2'] == '1'){ ?>
       <!--Card charmeleon-->
       <div class="pokemonContainers pokemonContainer2">
         <p style="position: absolute;"><img src="https://heatherketten.files.wordpress.com/2018/03/nrg_fire.png" width="25" height="25"></p>
@@ -154,7 +149,7 @@
     <!--Card info-->
     <div class="statsContainer">
       <h3 style="text-align: center;">Battle information</h3>
-      <img style="display:block;" class="avatar" src="images/battle.png" alt="battle">
+      <img style="display:block;" class="avatar" src="images/battle.jpg" alt="battle">
       
       <h4 style="padding-left: 5px;">Attacks:</h4>
       <form method="POST" action="" id="attackForm">
@@ -167,15 +162,12 @@
                 <?php for ($i=0; $i < count($pokemon->getAttack()); $i++){ ?>
                   <option <?php if(isset($_POST['pikachuAttack']) && $_POST['pikachuAttack'] == $i){ echo 'selected="selected"';}?> value=<?=$i?>><?=$pokemon->getAttackNameIndex($i);?></option>
                 <?php } ?>
-
               <?php }else{$pokemon = $Gogoat?>
                 <option <?php if(!isset($_POST['pikachuAttack']) || $_POST['pikachuAttack'] == null){ echo 'selected="selected"';}?> value="null" hidden><--Choose attack--></option>  
                 <?php for ($i=0; $i < count($pokemon->getAttack()); $i++){ ?>
                   <option <?php if(isset($_POST['pikachuAttack']) && $_POST['pikachuAttack'] == $i){ echo 'selected="selected"';}?> value=<?=$i?>><?=$pokemon->getAttackNameIndex($i);?></option>
                 <?php } ?>
               <?php } ?>
-
-
             </select>
           </li>
           <li><?php if($_POST['choosePokemon2'] == '0'){echo $Blastoise->getName();}elseif( $_POST['choosePokemon2'] == '1'){echo $Charmeleon->getName();}?> attacks <?php  if($_POST['choosePokemon1'] == '0'){echo $Pikachu->getName();}elseif($_POST['choosePokemon1'] == '1'){echo $Gogoat->getName();}?> with 
@@ -186,7 +178,6 @@
               <?php for ($i=0; $i < count($pokemon2->getAttack()); $i++) { ?>
                 <option <?php if(isset($_POST['charmeleonAttack']) && $_POST['charmeleonAttack'] == $i){ echo 'selected="selected"';}?> value=<?=$i?>><?=$pokemon2->getAttackNameIndex($i);?></option>
               <?php } ?>
-
               <?php }else{$pokemon2 = $Charmeleon?>
                 <option <?php if(!isset($_POST['charmeleonAttack']) || $_POST['charmeleonAttack'] == null){ echo 'selected="selected"';}?> value="null" hidden><--Choose attack--></option>  
                 <?php for ($i=0; $i < count($pokemon2->getAttack()); $i++){ ?>
