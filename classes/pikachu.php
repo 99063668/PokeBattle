@@ -6,7 +6,6 @@
       // Constructor
       public function __construct(){
         parent::__construct("Pikachu",  new \energyType("Lightning", ""), 60, [new \attack("Electric Ring", 50), new \attack("Pika Punch", 20)], new \weakness("Fire", 1.5), new \resistance("Fighting", 20));
-        // self::addPokemonArray($this);
       }
     }
   }
@@ -17,8 +16,7 @@
     class charmeleon extends pokemon{
       // Constructor
       public function __construct(){
-        parent::__construct("charmeleon",  new \energyType("Lightning", ""), 80, [new \attack("flare", 55), new \attack("fire", 25)], new \weakness("Fire", 1), new \resistance("Fighting", 35));
-        // self::addPokemonArray($this);
+        parent::__construct("Charmeleon",  new \energyType("Fire", ""), 60, [new \attack("Head Butt", 25), new \attack("Flare", 10)], new \weakness("Water", 1), new \resistance("Lightning", 35));
       }
     }
   }
@@ -29,8 +27,7 @@
     class gogoat extends pokemon{
       // Constructor
       public function __construct(){
-        parent::__construct("gogoat",  new \energyType("Lightning", ""), 60, [new \attack("geit", 50), new \attack("gwitje", 20)], new \weakness("Fire", 1.5), new \resistance("Fighting", 20));
-        // self::addPokemonArray($this);
+        parent::__construct("GoGoat",  new \energyType("Grass", ""), 60, [new \attack("Earthquake", 50), new \attack("Hyper Beam", 20)], new \weakness("Fire", 1.5), new \resistance("Water", 20));
       }
     }
   }
@@ -41,8 +38,7 @@
     class blastoise extends pokemon{
       // Constructor
       public function __construct(){
-        parent::__construct("blastoise",  new \energyType("Lightning", ""), 80, [new \attack("water", 55), new \attack("blastoise", 25)], new \weakness("Fire", 1), new \resistance("Fighting", 35));
-        // self::addPokemonArray($this);
+        parent::__construct("Blastoise",  new \energyType("Water", ""), 60, [new \attack("Water Gun", 55), new \attack("Blizzard", 25)], new \weakness("Grass", 1), new \resistance("Steel", 35));
       }
     }
   }
