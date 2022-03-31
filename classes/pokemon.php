@@ -31,7 +31,7 @@
       }else{
         $damage = $this->getAttack()[$index]->getDamage();
       }
-      if ($damage < 0){
+      if($damage < 0){
         $damage = 0;
       }
       $enemy->changeHealth($damage);

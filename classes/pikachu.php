@@ -10,13 +10,13 @@
     }
   }
 
-  namespace extraPokemon1{
+  namespace evolvedPokemon1{
     use pokemon;
 
     class pikachu extends pokemon{
       // Constructor
       public function __construct(){
-        parent::__construct("Pikachu",  new \energyType("Lightning", ""), 80, [new \attack("Electric Ring", 50), new \attack("Pika Punch", 20)], new \weakness("Fire", 1.5), new \resistance("Fighting", 20));
+        parent::__construct("Raichu",  new \energyType("Lightning", ""), 80, [new \attack("Electric Ring", 50), new \attack("Pika Punch", 35)], new \weakness("Fire", 2), new \resistance("Fighting", 25));
       }
     }
   }
