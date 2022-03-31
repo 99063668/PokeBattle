@@ -1,5 +1,5 @@
 <?php
-// Autoloader
+  // Autoloader
   spl_autoload_register(function ($class){
     if(strpos($class,"pokemon") !== false && strpos($class,"\\") !== false){
       $class = substr($class, (strpos($class,"\\") + 1));
@@ -15,12 +15,14 @@
   $Gogoat = new pokemon3\gogoat();
   $Blastoise = new pokemon4\blastoise();
 
+  // Check if POST is filled
   if(!isset($_POST['choosePokemon1'])){
     $_POST['choosePokemon1'] = null;
   }if(!isset($_POST['choosePokemon2'])){
     $_POST['choosePokemon2'] = null;
   }
 
+  //Choose var for select list
   if(isset($_POST['choosePokemon1']) && $_POST['choosePokemon1'] === '0'){
     $pokemon = $Pikachu;
   }elseif(isset($_POST['choosePokemon1']) && $_POST['choosePokemon1'] === '1'){
@@ -146,6 +148,7 @@
       </div>
     <?php } ?>
 
+    <?php if(isset($_POST['choosePokemon1']) && isset($_POST['choosePokemon2']) && $_POST['choosePokemon1'] !== "null" && $_POST['choosePokemon2'] !== "null"){ ?>
     <!--Card info-->
     <div class="statsContainer">
       <h3 style="text-align: center;">Battle information</h3>
@@ -159,12 +162,12 @@
           <select name="pikachuAttack" onchange="document.getElementById('attackForm').submit();">
               <?php if($_POST['choosePokemon1'] == '0'){$pokemon = $Pikachu?>
                 <option <?php if(!isset($_POST['pikachuAttack']) || $_POST['pikachuAttack'] == null){ echo 'selected="selected"';}?> value="null" hidden><--Choose attack--></option>  
-                <?php for ($i=0; $i < count($pokemon->getAttack()); $i++){ ?>
+                <?php for ($i = 0; $i < count($pokemon->getAttack()); $i++){ ?>
                   <option <?php if(isset($_POST['pikachuAttack']) && $_POST['pikachuAttack'] == $i){ echo 'selected="selected"';}?> value=<?=$i?>><?=$pokemon->getAttackNameIndex($i);?></option>
                 <?php } ?>
               <?php }else{$pokemon = $Gogoat?>
                 <option <?php if(!isset($_POST['pikachuAttack']) || $_POST['pikachuAttack'] == null){ echo 'selected="selected"';}?> value="null" hidden><--Choose attack--></option>  
-                <?php for ($i=0; $i < count($pokemon->getAttack()); $i++){ ?>
+                <?php for ($i = 0; $i < count($pokemon->getAttack()); $i++){ ?>
                   <option <?php if(isset($_POST['pikachuAttack']) && $_POST['pikachuAttack'] == $i){ echo 'selected="selected"';}?> value=<?=$i?>><?=$pokemon->getAttackNameIndex($i);?></option>
                 <?php } ?>
               <?php } ?>
@@ -175,12 +178,12 @@
           <select name="charmeleonAttack" onchange="document.getElementById('attackForm').submit();">
             <?php if($_POST['choosePokemon2'] == '0'){$pokemon2 = $Blastoise?>
               <option <?php if(!isset($_POST['charmeleonAttack']) || $_POST['charmeleonAttack'] == null){ echo 'selected="selected"';}?> value="null" hidden><--Choose attack--></option>  
-              <?php for ($i=0; $i < count($pokemon2->getAttack()); $i++) { ?>
+              <?php for ($i = 0; $i < count($pokemon2->getAttack()); $i++) { ?>
                 <option <?php if(isset($_POST['charmeleonAttack']) && $_POST['charmeleonAttack'] == $i){ echo 'selected="selected"';}?> value=<?=$i?>><?=$pokemon2->getAttackNameIndex($i);?></option>
               <?php } ?>
-              <?php }else{$pokemon2 = $Charmeleon?>
-                <option <?php if(!isset($_POST['charmeleonAttack']) || $_POST['charmeleonAttack'] == null){ echo 'selected="selected"';}?> value="null" hidden><--Choose attack--></option>  
-                <?php for ($i=0; $i < count($pokemon2->getAttack()); $i++){ ?>
+            <?php }else{$pokemon2 = $Charmeleon?>
+              <option <?php if(!isset($_POST['charmeleonAttack']) || $_POST['charmeleonAttack'] == null){ echo 'selected="selected"';}?> value="null" hidden><--Choose attack--></option>  
+              <?php for ($i = 0; $i < count($pokemon2->getAttack()); $i++){ ?>
                   <option <?php if(isset($_POST['charmeleonAttack']) && $_POST['charmeleonAttack'] == $i){ echo 'selected="selected"';}?> value=<?=$i?>><?=$pokemon2->getAttackNameIndex($i);?></option>
                 <?php } ?>
               <?php } ?>
@@ -210,5 +213,6 @@
       <h2 style="color: black; margin-top: 0px;">__________________________</h2>
       <p style="padding-left: 5px; margin: 0px;"><b>Pokemons alive after fight:</b> <?php echo $Pikachu->getPopulation();?></p>
     </div>
+    <?php } ?>
   </body>
 </html>
