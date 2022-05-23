@@ -1,5 +1,6 @@
 <?php
-  class energyType{
+  //class voor de energytype van de pokemon met hierbij de nodige variabelen
+  class EnergyType{
     private $type;
     private $value;
 

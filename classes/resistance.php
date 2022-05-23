@@ -1,5 +1,6 @@
 <?php
-  class resistance{
+  //class voor de resistance van de pokemon met hierbij de nodige variabelen
+  class Resistance{
     private $energyType;
     private $value;
 

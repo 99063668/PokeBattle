@@ -1,5 +1,6 @@
 <?php
-  class attack{
+  //class voor de attack van de pokemon met hierbij de nodige variabelen
+  class Attack{
     private $name;
     private $damage;
 

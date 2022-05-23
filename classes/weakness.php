@@ -1,5 +1,6 @@
 <?php
-  class weakness{
+  //class voor de weakness van de pokemon met hierbij de nodige variabelen
+  class Weakness{
     private $energyType;
     private $multiplier;
 

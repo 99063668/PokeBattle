@@ -1,5 +1,7 @@
 <?php
-  class pokemon{
+  //alle variabelen die nodig zijn om de gegevens van de pokemons op te halen 
+ 
+  class Pokemon{
     private $name;
     private $energyType;
     private $hitpoints;
@@ -23,6 +25,7 @@
     }
 
     // Methods
+    //functie die ervoor zorgt dat er damage word gedaan op de pokemon met de gekozen attack
     public function attackDamage($enemy, $index){
       if ($enemy->getWeakness()->getEnergyType() ==  $this->getEnergyType()->getType()){
         $damage = $this->getAttack()[$index]->getDamage() * $enemy->getWeakness()->getMultiplier();
@@ -38,6 +41,7 @@
       return $this->getAttackNameIndex($index);
     }
 
+    //functie die de health van de pokemon verandert op basis van de attackdamage
     public function changeHealth($damage){
       if($this->getHealth() - $damage > 0){
         $this->setHealth($this->getHealth() - $damage);
@@ -46,6 +50,7 @@
       }
     }
 
+    //functie die de hoeveelheid levende pokemons ophaald
     public static function getPopulation(){
       $count = 0;
       foreach(self::$pokemons as $pokemon){
